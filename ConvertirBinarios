@@ -1,0 +1,111 @@
+#include "stdio.h"
+#include "math.h"
+#include "string.h"
+#include "stdlib.h"
+
+      crearBinario(num);
+      decitoHexa(num);
+      bintoDec(n);
+      bintoHexa(n);
+
+int crearBinario(int num)
+    {
+  // Variables
+    int arreglo[1000];
+    int numero = num;
+    int j;
+  // Variables Auxiliares
+    int i = 0;
+    while(numero>0)
+        {
+        arreglo[i] = numero%2;
+        numero = numero/2;
+        i++;
+        }
+
+    printf(" El numero transformado a Binario es : %s\n" );
+    for(j = i-1; j>=0; j--)
+        { printf("%d",arreglo[j]);}
+    printf("\n");
+    return 0;
+}
+
+
+  int decitoHexa(int num){
+    // Vector con todos los dígitos posibles en Hexadecimal. Pequeño truco para hacerlo más facil.
+    char digitosHexa[16]="0123456789ABCDEF";
+    // Variables
+    long int numero = num;
+    int cociente, residuo;
+    // Auxiliares
+    int i=0, j=0;
+
+    // Vector Resultante
+    char hexadecimal[10];
+
+    cociente = numero;
+
+    // Mientras el Cociente no sea 0 continuaremos dividiendo y guardando en nuestro array los digitos en Hexa.
+    while(cociente > 0){
+      residuo  = cociente%16;
+      hexadecimal[i++]= digitosHexa[residuo];
+      cociente = cociente/16;
+    }
+
+    printf("El codigo Hexadecimal es: %s\n" );
+    // Lo imprimimos al revés.
+    for(j = i-1;j>=0; j--){
+      printf("%c",hexadecimal[j]);
+    }
+return 0;
+}
+
+
+int bintoDec(){
+  // Arreglo para número con cadena en binario
+  char binarios[9]; // 8 bits Maximo
+
+  // Variables
+  int i, resultado=0;
+
+  // Pedir el codigo binario
+  printf("Ingrese codigo binario: \n");
+  scanf("%s",binarios);
+
+  for(i=strlen(binarios)-1; i >= 0; i--){
+    if(binarios[i]=='1'){
+      resultado = resultado + pow(2,strlen(binarios)-1-i); // Como sólo se multiplicara por 1, dejamos solo la potencia.
+    }
+  }
+  printf("El valor en decimal es: %d\n\n", resultado);
+
+  return resultado;
+}
+int bintoHexa(){
+  int decGuardado = bintoDec();
+  decitoHexa(decGuardado);
+  return 0;
+}
+int main(){
+
+      // Variable n a cambiar para probar distintos numeros.
+      int n= 30, dec_creado, num;
+
+      // Deci a Binario
+      //crearBinario(n);
+
+      // Deci a Hexadecimal
+      //decitoHexa(n);
+
+      // Binario a Decimal
+      //dec_creado = bintoDec();
+
+      //Binario a Hexadecimal
+      //bintoHexa();
+      crearBinario(num);
+      decitoHexa(num);
+      bintoDec(n);
+      bintoHexa(n);
+      return 0;
+}
+

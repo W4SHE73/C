@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+  int a=0,b,c=0,d=1;
+  for(c;c<16;c++){
+      printf("El asiento %d esta ocupado?",d);
+    printf("\n\nSi esta ocupado ingresa el 1, si no lo esta ingrese 0\n");
+    scanf("%d",&b);
+    if(b=1) a++;
+    else(b=0) c;
+    d++;
+  }
+  printf("El numero de pasajeros es: %d",c);
+}
